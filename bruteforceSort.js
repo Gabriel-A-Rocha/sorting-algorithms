@@ -5,26 +5,23 @@ class BruteForceSortAlgorithm {
     const sortedArray = [...array];
     let index = 0;
 
-    const applySwitch = (i) => {
+    const applySwitchAndResetIndex = (i) => {
       const current = sortedArray[i];
       sortedArray.splice(i, 1);
       sortedArray.splice(i + 1, 0, current);
+      index = 0;
     };
 
-    const switchIfApplicable = (i) => {
-      if (sortedArray[i] - sortedArray[i + 1] > 0) {
-        applySwitch(i);
-        index = 0;
-      } else {
-        index++;
-      }
+    const isSwitchApplicable = (i) => {
+      return sortedArray[i] - sortedArray[i + 1] > 0 ? true : false;
     };
 
     do {
-      switchIfApplicable(index);
+      isSwitchApplicable(index) ? applySwitchAndResetIndex(index) : index++;
     } while (index < sortedArray.length - 1);
+
     return [...sortedArray];
   }
 }
 
-export default { BruteForceSortAlgorithm };
+module.exports = BruteForceSortAlgorithm;
