@@ -1,10 +1,12 @@
 {
   "name": "sorting-algorithms",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch",
+    "start": "node --inspect ./bruteforceSort.test.js"
   },
   "keywords": [],
   "author": "",
